@@ -3,16 +3,13 @@
   "version": "1.0.0",
   "description": "unit testing",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "jest"
   },
   "author": "Natalia Siutsova <tashaklimenkova@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.4.0",
     "jest": "^29.4.1"
-  },
-  "dependencies": {
-    "@types/jest": "^29.4.0"
   }
 }
