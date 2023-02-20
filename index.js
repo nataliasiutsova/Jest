@@ -25,6 +25,14 @@ const groups = [
     { name: 'Vadimyr', score: 1, date: '2022-10-11' },
   ],
   [
+    { name: 'Irina', score: 60, date: '2022-10-01' },
+    { name: 'Vasily', score: 0, date: '2022-10-10' },
+    { name: 'David', score: 0, date: '2022-10-11' },
+    { name: 'Kristina', score: 0, date: '2022-10-12' },
+    { name: 'Varvara', score: 60, date: '2022-10-01' },
+    { name: 'Tanya', score: 0, date: '2022-10-11' },
+  ],
+  [
     { name: 'Irina', score: 0, date: '2022-10-11' },
     { name: 'Vasily', score: 0, date: '2022-10-10' },
     { name: 'David', score: 0, date: '2022-10-11' },
@@ -46,13 +54,19 @@ function findBestStudent(group) {
     }
   });
 
+  let higestScore = group[0].score;
+  let earliestDate = group[0].date;
+  let bestStudents = [];
+
+  group.forEach(function (obj) {
+    if (obj.score === higestScore && obj.date === earliestDate) {
+      bestStudents.push(obj);
+    }
+  });
   if (group[0].score === 0) {
     return 'There is not the best student';
   } else {
-    let bestStudent = [];
-    bestStudent.push(group[0].name);
-    bestStudent.push(group[0].score);
-    return bestStudent;
+    return bestStudents;
   }
 }
 

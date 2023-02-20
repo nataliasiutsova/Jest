@@ -38,6 +38,14 @@ const groups = [
     { name: 'Varvara', score: 0, date: '2022-10-01' },
     { name: 'Tanya', score: 0, date: '2022-10-11' },
   ],
+  [
+    { name: 'Irina', score: 60, date: '2022-10-01' },
+    { name: 'Vasily', score: 0, date: '2022-10-10' },
+    { name: 'David', score: 0, date: '2022-10-11' },
+    { name: 'Kristina', score: 0, date: '2022-10-12' },
+    { name: 'Varvara', score: 60, date: '2022-10-01' },
+    { name: 'Tanya', score: 0, date: '2022-10-11' },
+  ],
 ];
 
 // describe('findBestStudent function', () => {
@@ -51,10 +59,11 @@ const groups = [
 describe('findBestStudent function should return the best student of the group:', () => {
   test.each`
     group        | result
-    ${groups[0]} | ${['Ivan', 35]}
-    ${groups[1]} | ${['Marina', 25]}
+    ${groups[0]} | ${{ name: 'Ivan', score: 35, date: '2022-10-11' }}
+    ${groups[1]} | ${{ name: 'Marina', score: 25, date: '2022-10-01' }}
     ${groups[2]} | ${'There is not the best student'}
-  `('The best student: $result', ({ group, result }) => {
+    ${groups[3]} | ${({ name: 'Irina', score: 60, date: '2022-10-01' }, { name: 'Varvara', score: 60, date: '2022-10-01' })}
+  `('The best student: %result', ({ group, result }) => {
     expect(findBestStudent(group)).toEqual(result);
   });
 });
